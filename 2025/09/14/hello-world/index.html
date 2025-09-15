@@ -42,6 +42,9 @@
 
 
 
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
+
 
 
 
@@ -185,6 +188,10 @@
     
     
     
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
     
     
     
@@ -220,7 +227,61 @@
     </div>
     <script src="/js/main.js"></script>
     
+    <!-- 
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liS99ygwzOYsJ9e6",
+        clientSecret: "813f412d499a55aa13e94146ef28d900c5c0052f",
+        repo: "Skuld-Jie.github.io",
+        owner: "Skuld-Jie",
+        admin: "Skuld-Jie".split(","),
+        language: "",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+ -->
+
+<!-- Gitalk 评论容器 -->
+<div id="gitalk-container"></div>
+
+<!-- 引入 Gitalk CSS 和 JS -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<!-- 引入 MD5 用于生成文章ID -->
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script>
+
+<script>
+    // 初始化 Gitalk
+    var gitalk = new Gitalk({
+        clientID: 'Ov23liS99ygwzOYsJ9e6',
+        clientSecret: '813f412d499a55aa13e94146ef28d900c5c0052f',
+        repo: 'Skuld-Jie.github.io',
+        owner: 'Skuld-Jie',
+        admin: ['Skuld-Jie'],
+        id: md5(location.pathname), // 使用MD5哈希避免路径过长问题
+        distractionFreeMode: false,
+        language: 'zh-CN',
+        createIssueManually: false, // 自动创建issue
+        flipMoveOptions: {
+            staggerDelayBy: 150,
+            appearAnimation: 'accordionVertical',
+            enterAnimation: 'accordionVertical',
+            leaveAnimation: 'accordionVertical'
+        }
+    });
     
+    // 渲染 Gitalk
+    gitalk.render('gitalk-container');
+</script>
+
+
+
 
 
 
